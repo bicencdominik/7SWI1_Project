@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="912.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+  <children>
+    <SplitPane dividerPositions="0.33" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="NEVER">
+      <items>
+        <AnchorPane prefHeight="573.0" prefWidth="0.0">
+               <children>
+                  <TextField fx:id="txtname" layoutX="122.0" layoutY="50.0" />
+                  <TextField fx:id="txtsurname" layoutX="122.0" layoutY="90.0" />
+                  <TextField fx:id="txtemail" layoutX="122.0" layoutY="131.0" />
+                  <Text layoutX="49.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+                  <Text layoutX="49.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname" />
+                  <Text layoutX="49.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail" />
+                  <DatePicker fx:id="txtdate" layoutX="122.0" layoutY="166.0" prefHeight="25.0" prefWidth="149.0" />
+                  <Text layoutX="49.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" />
+                  <Button fx:id="reserveButton" layoutX="49.0" layoutY="299.0" mnemonicParsing="false" onAction="#reserveButtonClicked" prefHeight="55.0" prefWidth="224.0" text="Reserve">
+                     <font>
+                        <Font name="Arial" size="21.0" />
+                     </font>
+                  </Button>
+                  <Text layoutX="49.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time" />
+                  <TextField fx:id="txttime" layoutX="122.0" layoutY="203.0" />
+                  <TextField fx:id="txtID" layoutX="122.0" layoutY="14.0" />
+                  <Text layoutX="50.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" />
+               </children>
+        </AnchorPane>
+            <AnchorPane prefHeight="622.0" prefWidth="607.0">
+               <children>
+                  <Button fx:id="deleteButton" contentDisplay="CENTER" layoutX="432.0" layoutY="520.0" mnemonicParsing="false" onAction="#Delete" prefHeight="16.0" prefWidth="130.0" text="Delete" textAlignment="CENTER" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="529.0">
+                     <font>
+                        <Font name="Arial" size="21.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="editButton" contentDisplay="CENTER" layoutX="245.0" layoutY="529.0" mnemonicParsing="false" onAction="#Edit" prefHeight="16.0" prefWidth="130.0" text="Edit" textAlignment="CENTER" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="245.0" AnchorPane.topAnchor="529.0">
+                     <font>
+                        <Font name="Arial" size="21.0" />
+                     </font>
+                  </Button>
+                  <TableView fx:id="tableUsers" onMouseClicked="#GetSelected" prefHeight="498.0" prefWidth="620.0">
+                    <columns>
+                        <TableColumn fx:id="tableColID" prefWidth="36.0" text="ID" />
+                      <TableColumn fx:id="tableColName" prefWidth="114.0" text="Name" />
+                      <TableColumn fx:id="tableColSurname" prefWidth="75.0" text="Surname" />
+                        <TableColumn fx:id="tableColEmail" prefWidth="75.0" text="Email" />
+                        <TableColumn fx:id="tableColDate" prefWidth="75.0" text="Date" />
+                        <TableColumn fx:id="tableColTime" prefWidth="75.0" text="Time" />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="editButton1" contentDisplay="CENTER" layoutX="53.0" layoutY="520.0" mnemonicParsing="false" onAction="#refreshButtonClicked" prefHeight="16.0" prefWidth="130.0" text="Refresh" textAlignment="CENTER" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="529.0">
+                     <font>
+                        <Font name="Arial" size="21.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+      </items>
+    </SplitPane>
+  </children>
+</VBox>

@@ -71,6 +71,7 @@ public class Controller {
 
             insert.executeUpdate();
             System.out.println("Pridano");
+            Initialize();
 
         }catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
@@ -78,22 +79,7 @@ public class Controller {
     }
     @FXML
     void refreshButtonClicked(ActionEvent event) {
-        System.out.println("HALOOLO");
-        PropertyValueFactory id = new PropertyValueFactory<User, Integer>("id");
-        tableColID.setCellValueFactory(id);
-        PropertyValueFactory name = new PropertyValueFactory<User, String>("name");
-        tableColName.setCellValueFactory(name);
-        PropertyValueFactory surname = new PropertyValueFactory<User,String >("surname");
-        tableColSurname.setCellValueFactory(surname);
-        PropertyValueFactory email = new PropertyValueFactory<User,String >("email");
-        tableColEmail.setCellValueFactory(email);
-        PropertyValueFactory date = new PropertyValueFactory<User,Date >("date");
-        tableColDate.setCellValueFactory(date);
-        PropertyValueFactory time = new PropertyValueFactory<User,Time >("time");
-        tableColTime.setCellValueFactory(time);
-        listM = MysqlConnect.getDatauser();
-        System.out.println("sadadsda");
-        tableUsers.setItems(listM);
+        Initialize();
     }
 
     public void Delete(){
@@ -104,6 +90,7 @@ public class Controller {
             ps.setString(1,txtID.getText());
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null,"deleted");
+            Initialize();
         }catch (Exception e){
             JOptionPane.showMessageDialog(null,e);
         }
@@ -136,8 +123,9 @@ public class Controller {
     ResultSet rs = null;
     PreparedStatement ps = null;
 
-    public void initialize(URL url, ResourceBundle rb){
-        System.out.println("HALOOLO");
+    @FXML
+    public void Initialize(){
+        System.out.println("Jsme tam");
         PropertyValueFactory id = new PropertyValueFactory<User, Integer>("id");
         tableColID.setCellValueFactory(id);
         PropertyValueFactory name = new PropertyValueFactory<User, String>("name");
@@ -152,7 +140,6 @@ public class Controller {
         tableColTime.setCellValueFactory(time);
 
         listM = MysqlConnect.getDatauser();
-        System.out.println("sadadsda");
         tableUsers.setItems(listM);
     }
 
@@ -182,6 +169,7 @@ public class Controller {
             ps = con.prepareStatement(sql);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null,"Updated");
+            Initialize();
         }catch (Exception e){
             JOptionPane.showMessageDialog(null,e);
         }

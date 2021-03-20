@@ -18,7 +18,7 @@ public class MysqlConnect {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/sw_test","admin","123");
-            JOptionPane.showMessageDialog(null, "Connection Established");
+            //JOptionPane.showMessageDialog(null, "Connection Established");
             return conn;
         } catch (Exception e) {
             System.out.println("Nevyšlo to");
